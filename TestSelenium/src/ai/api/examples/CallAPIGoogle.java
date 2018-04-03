@@ -5,6 +5,7 @@ import ai.api.AIDataService;
 import ai.api.AIServiceException;
 import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
+import ai.api.util.StringUtils;
 
 public class CallAPIGoogle {
 	public AIResponse callGoogle(String quote) {
@@ -40,8 +41,9 @@ public class CallAPIGoogle {
 				}
 				System.out.println("searchEngine::"+searchEngine);
 				System.out.println("searchParam::"+searchParam);
-				
-//				TextClientApplication.clickscreen(searchEngine,searchParam);
+				if(!StringUtils.isEmpty(searchParam)){
+					TextClientApplication.clickscreen(searchEngine,searchParam);
+				}
 			} else {
 				System.err.println(response.getStatus().getErrorDetails());
 			}
